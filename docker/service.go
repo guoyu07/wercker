@@ -185,7 +185,7 @@ func (b *InternalServiceBox) Run(ctx context.Context, env *util.Environment, lin
 	}
 
 	conf := &docker.Config{
-		Image:           b.Name,
+		Image:           env.Interpolate(b.Name),
 		Cmd:             cmd,
 		Env:             myEnv,
 		ExposedPorts:    exposedPorts(b.config.Ports),
