@@ -1,0 +1,10 @@
+build:
+  box: alpine:3.6
+  services:
+    - name: service-box
+      id: redis
+      tag: $AN_ENV_VAR
+  steps:
+    - script:
+      name: prepare /bin
+      code: echo "testing"
